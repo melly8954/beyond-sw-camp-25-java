@@ -3,6 +3,8 @@ package com.beyond.operator.practice;
 import java.util.Scanner;
 
 public class G_OperatorPractice {
+    Scanner sc = new Scanner(System.in);
+
     /*
      * 실습 문제 1
      * 사용자가 입력한 문자 값이 알파벳 대문자인지 확인하기
@@ -14,7 +16,6 @@ public class G_OperatorPractice {
      */
     public void practice1() {
         System.out.println("문자를 하나 입력하세요.");
-        Scanner sc = new Scanner(System.in);
         char c = sc.next().charAt(0);
 
         System.out.println(c >= 65 && c <= 90 ? "대문자입니다." : "소문자입니다.");
@@ -28,7 +29,6 @@ public class G_OperatorPractice {
      * 아닌 경우 "결과가 100 보다 작습니다." 출력
      */
     public void practice2() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("첫 번째 정수를 입력하세요.");
         int num1 = sc.nextInt();
         System.out.println("첫 번째 입력한 정수:" + num1);
@@ -53,7 +53,6 @@ public class G_OperatorPractice {
      * 아닌 경우 "알파벳 대문자가 아니다." 출력
      */
     public void practice3() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("문자 하나를 입력하세요.");
         char c = sc.next().charAt(0);
         System.out.println("입력한 문자 : " + c);
@@ -75,7 +74,6 @@ public class G_OperatorPractice {
      *   3 + 4 = 7
      */
     public void practice4() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("첫 번째 정수를 입력하세요.");
         int num1 = sc.nextInt();
         System.out.println("첫 번째 입력한 정수:" + num1);
@@ -101,7 +99,6 @@ public class G_OperatorPractice {
      * 짝수가 아니면 "홀수이다"를 출력하세요.
      */
     public void practice5() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("정수를 입력하세요.");
 
         int num = sc.nextInt();
@@ -118,8 +115,6 @@ public class G_OperatorPractice {
      * 사탕 개수와 나눠주고 남은 사탕의 개수를 출력하세요.
      */
     public void practice6() {
-        Scanner sc = new Scanner(System.in);
-
         System.out.println("사탕 개수를 입력하세요.");
         int candy = sc.nextInt();
         System.out.println("사탕 수: " + candy);
@@ -139,7 +134,6 @@ public class G_OperatorPractice {
      * 세 과목에 대한 합계(국어 + 영어 + 수학)와 평균(합계 / 3.0)을 구하세요.
      */
     public void practice7() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("국어 점수를 입력하세요.");
         int kor = sc.nextInt();
         System.out.println("입력한 국어 점수: " + kor);
@@ -166,7 +160,6 @@ public class G_OperatorPractice {
      * 주민 번호를 입력받아 남자인지 여자인지 구분하여 출력하세요.
      */
     public void practice8() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("주민 번호를 입력하세요.");
         String jumin = sc.next();
         System.out.println("입력한 주민 번호: " + jumin);
@@ -181,7 +174,6 @@ public class G_OperatorPractice {
      * 입력받은 정수가 모두 같으면 true, 아니면 false를 출력하세요
      */
     public void practice9() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("첫 번째 정수를 입력하세요.");
         int num1 = sc.nextInt();
         System.out.println("첫 번째 입력한 정수:" + num1);
@@ -202,5 +194,11 @@ public class G_OperatorPractice {
         boolean res = eq ? true : false;
 
         System.out.println("결과: " + res);
+    }
+
+    // Scanner 닫기 메서드
+    public void close() {
+        System.out.println("Scanner 종료 완료.");
+        sc.close();
     }
 }

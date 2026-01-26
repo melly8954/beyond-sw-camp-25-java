@@ -1,28 +1,49 @@
 package com.beyond.operator;
 
+import com.beyond.operator.practice.A_InDecrease;
+import com.beyond.operator.practice.B_Arithmetic;
+import com.beyond.operator.practice.C_Comparison;
+import com.beyond.operator.practice.D_Logical;
+import com.beyond.operator.practice.E_Assignment;
+import com.beyond.operator.practice.F_Triple;
 import com.beyond.operator.practice.G_OperatorPractice;
 
 public class Application {
     public static void main(String[] args) {
         System.out.println("Application 실행 중..");
 
-        // new A_InDecrease().method01();
-        // new B_Arithmetic().method01();
-        // new C_Comparison().method01();
-        // new C_Comparison().method02();
-        // new D_Logical().method01();
-        // new D_Logical().method02();
-        // new E_Assignment().method01();
-        // new F_Triple().method01();
+        A_InDecrease a = new A_InDecrease();
+        B_Arithmetic b = new B_Arithmetic();
+        C_Comparison c = new C_Comparison();
+        D_Logical d = new D_Logical();
+        E_Assignment e = new E_Assignment();
+        F_Triple f = new F_Triple();
+        G_OperatorPractice g = new G_OperatorPractice();
 
-        // new G_OperatorPractice().practice1();
-        // new G_OperatorPractice().practice2();
-        // new G_OperatorPractice().practice3();
-        // new G_OperatorPractice().practice4();
-        // new G_OperatorPractice().practice5();
-        // new G_OperatorPractice().practice6();
-        // new G_OperatorPractice().practice7();
-        // new G_OperatorPractice().practice8();
-         new G_OperatorPractice().practice9();
+        // a.method01();
+
+        // b.method01();
+
+        // c.method01();
+        // c.method02();
+
+        // d.method01();
+        // d.method02();
+
+        // e.method01();
+
+        // f.method01();
+
+        // g.practice1();
+        // g.practice2();
+        // g.practice3();
+        // g.practice4();
+        // g.practice5();
+        // g.practice6();
+         g.practice7();
+        // g.practice8();
+        // g.practice9();
+
+         g.close();
     }
 }
