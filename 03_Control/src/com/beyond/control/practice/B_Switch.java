@@ -41,6 +41,17 @@ public class B_Switch {
             System.out.println("1월부터 12월 중 하나를 입력하셔야 합니다.\n다시 입력하세요.");
             return;
         }
+
+        switch (month) {
+            case 1, 3, 5, 7, 8, 10, 12:
+                System.out.printf("%d월은 31일까지입니다.\n", month);
+                break;
+            case 4, 6, 9, 11:
+                System.out.printf("%d월은 30일까지입니다.\n", month);
+                break;
+            case 2:
+                System.out.printf("%d월은 28일 또는 29일까지입니다.\n", month);
+        }
     }
 
     public void close() {
