@@ -1,6 +1,10 @@
 package com.beyond.control.practice;
 
+import java.util.Scanner;
+
 public class F_LoopPractice {
+    Scanner sc = new Scanner(System.in);
+
     /*
      * 실습 문제 1
      * 1부터 사용자가 입력한 수까지의 합계를 구하시오.
@@ -11,6 +15,20 @@ public class F_LoopPractice {
      * 총 합계 : 55
      */
     public void practice1() {
+        System.out.print("1보다 큰 정수 하나를 입력하세요. >> ");
+        int num = sc.nextInt();
+        System.out.println("입력한 정수: " + num);
+        System.out.println();
+
+        int i = 1;
+        int sum = 0;
+
+        while(i <= num) {
+            sum += i;
+            i++;
+        }
+
+        System.out.printf("총 합계: %d\n", sum);
     }
 
     /*
@@ -29,6 +47,19 @@ public class F_LoopPractice {
      */
 
     public void practice2() {
+        System.out.print("구구단의 단을 입력해주세요. >> ");
+        int dan = sc.nextInt();
+
+        System.out.println("입력한 단: "+ dan);
+        System.out.println();
+
+        if(dan > 2 && dan < 10) {
+            for(int i = 1; i < 10; i++) {
+                System.out.printf("%d X %d = %d\n", dan, i, dan * i);
+            }
+        } else {
+            System.out.println("2 ~ 9 사이의 정수를 입력하여야 합니다.");
+        }
     }
 
     /*
@@ -42,8 +73,16 @@ public class F_LoopPractice {
      * '.'
      */
     public void practice3() {
-        // 문자열의 길이를 출력하는 메소드
-        // System.out.println("안녕하세요.".length());
+        System.out.print("문자열을 입력해주세요. >> ");
+        String str = sc.next();
+
+        System.out.println("입력한 문자열: " + str);
+        System.out.println();
+
+        for(int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            System.out.println("\'"+ c + "\'");
+        }
     }
 
     /*
@@ -57,6 +96,16 @@ public class F_LoopPractice {
      *   ***4
      */
     public void practice4() {
+        for(int i = 0; i < 4; i++) {
+            for(int j = 0; j < 4; j++) {
+                if (i == j) {
+                    System.out.print(i + 1);
+                } else {
+                    System.out.print("*");
+                }
+            }
+            System.out.println();
+        }
     }
 
     /*
@@ -71,6 +120,13 @@ public class F_LoopPractice {
      *   *****
      */
     public void practice5() {
+        for(int i = 0; i < 5; i++) {
+            System.out.print("*");
+            for(int j = 0; j < i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
 
     /*
@@ -93,5 +149,43 @@ public class F_LoopPractice {
      *   연산자를 잘못 입력하셨습니다.
      */
     public void practice6() {
+        while(true) {
+            System.out.print("첫 번째 정수를 입력하세요. >> ");
+            int num1 = sc.nextInt();
+            System.out.println("첫 번째 입력한 정수:" + num1);
+            System.out.println();
+
+            System.out.print("두 번째 정수를 입력하세요. >> ");
+            int num2 = sc.nextInt();
+            System.out.println("두 번째 입력한 정수:" + num2);
+            System.out.println();
+
+            System.out.print("연산자를 입력하세요. >> ");
+            char op = sc.next().charAt(0);
+            System.out.println("입력한 연산자: " + op);
+            System.out.println();
+
+            int sum = 0;
+
+            if(op == '+') {
+                sum = num1 + num2;
+            } else if(op == '-') {
+                sum = num1 - num2;
+            } else if(op == '*') {
+                sum = num1 * num2;
+            } else if(op == '/') {
+                sum = num1 / num2;
+            } else {
+                System.out.println("연산자를 잘못 입력하셨습니다.\n프로그램을 종료합니다.");
+                break;
+            }
+
+            System.out.printf("%d %c %d = %d\n", num1, op, num2, sum);
+        }
+    }
+
+    public void close() {
+        System.out.println("Scanner 종료 완료.");
+        sc.close();
     }
 }
