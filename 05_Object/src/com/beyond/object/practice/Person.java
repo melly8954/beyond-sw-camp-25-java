@@ -12,11 +12,17 @@ public class Person {
     private String name;
     private int age;
 
+    // Phone 클래스는 접근 제한자가 default
+    // 즉, 동일한 패키지에 존재하는 Person 클래스에서 생성할 수 있다.
+    private Phone phone = new Phone();
+
+
     // 2. 생성자 정의
     public Person() {
-        System.out.println("생성자 호출");
+        // System.out.println("생성자 호출");
     }
-    
+
+
     // 3. 메서드(기능) 정의
     public void setName(String n) {
         name = n;
@@ -26,7 +32,16 @@ public class Person {
         age = n;
     }
 
+    public void setPhone(String name, String color, String brand) {
+        phone.setName(name);
+        phone.setColor(color);
+        phone.setBrand(brand);
+    }
+
     public void introduce() {
         System.out.printf("안녕하세요.\n저는 %s이고, 나이는 %d세 입니다.\n", name, age);
+        System.out.printf("저는 %s의 %s(%s)을(를) 가지고 있습니다.\n",
+                phone.getName(), phone.getColor(), phone.getBrand());
+        System.out.println();
     }
 }
