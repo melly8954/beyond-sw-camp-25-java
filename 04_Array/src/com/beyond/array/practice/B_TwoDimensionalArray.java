@@ -76,7 +76,7 @@ public class B_TwoDimensionalArray {
 
         for(int i = 0; i < numbers.length; i++) {
             for(int j = 0; j < numbers[0].length; j++) {
-                int random = (int) (Math.random() * 10 + 1);
+                int random = (int) (Math.random() * 9 + 1);
                 numbers[i][j] = random;
                 System.out.printf("%d\t", numbers[i][j]);
             }
@@ -96,12 +96,23 @@ public class B_TwoDimensionalArray {
      * 2 7 3
      */
     public void practice2() {
+        int index = 0;
+        int[] temp = new int[9];
         int[][] numbers = new int[3][3];
+
+        for(int i = 0; i < temp.length; i++) {
+            int random = (int) (Math.random() * 9 + 1);
+            temp[i] = random;
+            for(int j = 0; j < i; j++) {
+                if(temp[i] == temp[j]) {
+                    i--;
+                }
+            }
+        }
 
         for(int i = 0; i < numbers.length; i++) {
             for(int j = 0; j < numbers[0].length; j++) {
-                int random = (int) (Math.random() * 10 + 1);
-                numbers[i][j] = random;
+                numbers[i][j] = temp[index++];
                 System.out.printf("%d\t", numbers[i][j]);
             }
             System.out.println();
