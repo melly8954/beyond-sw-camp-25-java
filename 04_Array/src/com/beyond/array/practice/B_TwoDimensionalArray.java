@@ -105,7 +105,9 @@ public class B_TwoDimensionalArray {
             temp[i] = random;
             for(int j = 0; j < i; j++) {
                 if(temp[i] == temp[j]) {
+                    // 해당 i값에서 중복이 발생했으므로 i값 -1 감소 후 다시 랜덤 부여
                     i--;
+                    break;
                 }
             }
         }
