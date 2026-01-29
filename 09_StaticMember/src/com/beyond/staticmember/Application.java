@@ -3,6 +3,7 @@ package com.beyond.staticmember;
 import com.beyond.staticmember.practice.A_StaticField;
 import com.beyond.staticmember.practice.B_StaticMethod;
 import com.beyond.staticmember.practice.C_StaticFinalField;
+import com.beyond.staticmember.practice.D_InitBlock;
 
 public class Application {
     public static void main(String[] args) {
@@ -59,16 +60,25 @@ public class Application {
 //        System.out.println();
 
         // 상수 테스트
-        System.out.println(C_StaticFinalField.MAX_LEVEL);
-        System.out.println(Math.PI);
-        System.out.println(Integer.MAX_VALUE);
-        System.out.printf("int 데이터 타입의 표현 범위는 %d ~ %d 입니다.\n",
-                Integer.MIN_VALUE, Integer.MAX_VALUE);
-        System.out.printf("double 데이터 타입의 표현 범위는 %f ~ %f 입니다.\n",
-                Double.MIN_VALUE, Double.MAX_VALUE);
-        System.out.println();
-
+//        System.out.println(C_StaticFinalField.MAX_LEVEL);
+//        System.out.println(Math.PI);
+//        System.out.println(Integer.MAX_VALUE);
+//        System.out.printf("int 데이터 타입의 표현 범위는 %d ~ %d 입니다.\n",
+//                Integer.MIN_VALUE, Integer.MAX_VALUE);
+//        System.out.printf("double 데이터 타입의 표현 범위는 %f ~ %f 입니다.\n",
+//                Double.MIN_VALUE, Double.MAX_VALUE);
+//        System.out.println();
         // C_StaticFinalField.MAX_LEVEL = 100; // 상수는 값을 변경할 수 없음
 
+
+        // 필드 초기화 테스트
+        // 1. 필드
+        D_InitBlock initBlock = new D_InitBlock();
+
+        System.out.println(initBlock.getName());
+        System.out.println();
+
+        // 2. 정적 필드
+        System.out.println(D_InitBlock.getAge());
     }
 }
