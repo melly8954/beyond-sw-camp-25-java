@@ -14,6 +14,12 @@ public class SmartPhone extends Product{
     }
 
     public SmartPhone(String code, String name, String brand, int price, String mobileAgency) {
+        super(code, name, brand, price);
         this.mobileAgency = mobileAgency;
+    }
+
+    @Override
+    public String information() {
+        return String.format("%s, mobileAgency: %s", super.information(), mobileAgency);
     }
 }

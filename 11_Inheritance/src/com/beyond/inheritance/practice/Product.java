@@ -1,10 +1,10 @@
 package com.beyond.inheritance.practice;
 
 public class Product {
-    private String code;
-    private String name;
-    private String brand;
-    private int price;
+    protected String code;
+    protected String name;
+    protected String brand;
+    protected int price;
 
     public Product() {
         System.out.println("부모 클래스의 기본 생성자 호출");
