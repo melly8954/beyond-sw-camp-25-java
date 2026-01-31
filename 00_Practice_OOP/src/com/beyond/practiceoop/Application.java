@@ -36,6 +36,7 @@ public class Application {
 //        System.out.println("상품명 = " + p3.getName());
 //        System.out.println("부가세 포함 가격 = " + p3.applyTax(p1.getPrice(), p3.getTax()) + "원");
 
+
         // 실습 문제2
 //        Book b1 = new Book();
 //        Book b2 = new Book("자바의정석", 20000, 0.2, "윤상섭");
@@ -58,6 +59,7 @@ public class Application {
 //
 //        System.out.println("도서명 = " + b2.getTitle());
 //        System.out.println("할인된 가격 = " + b2.applyDiscount(b2.getPrice(), b2.getDiscountRate()) +"원");
+
 
         // 실습 문제3
 //        Student[] students = new Student[3];
@@ -101,6 +103,27 @@ public class Application {
 //            if(e != null) {
 //                System.out.println(e.information());
 //            }
+//        }
+
+
+        // 실습 문제4
+//        Circle[] circles = new Circle[2];
+//        Rectangle[] rectangles = new Rectangle[2];
+//
+//        circles[0] = new Circle(1, 2, 3);
+//        circles[1] = new Circle(3, 3, 4);
+//
+//        rectangles[0] = new Rectangle(-1, -2, 5, 2);
+//        rectangles[1] = new Rectangle(-2, 5, 2, 8);
+//
+//        System.out.println("==== circle ====");
+//        for(Circle c : circles) {
+//            c.draw();
+//        }
+//
+//        System.out.println("==== rectangle ====");
+//        for(Rectangle r : rectangles) {
+//            r.draw();
 //        }
     }
 }
