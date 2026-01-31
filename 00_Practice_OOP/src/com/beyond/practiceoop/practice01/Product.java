@@ -59,4 +59,8 @@ public class Product {
     public String information() {
         return String.format("%s %s %s %d %.2f", id, name, site, price, tax);
     }
+
+    public int applyTax(int price, double tax) {
+        return price + (int) (price * tax);
+    }
 }
