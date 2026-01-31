@@ -3,16 +3,18 @@ package com.beyond.staticmember.practice;
 import java.util.Arrays;
 
 public class B_StaticMethod {
+    // 정적 필드
     private static int num1 = 10;
     private static int num2 = 18;
+    // 인스턴스 필드
     private int num3 = 30;
 
     // 1. 매개 변수와 반환값이 없는 정적 메서드
     public static void method01() {
         System.out.println(num1 + num2++);
 
-        // 정적 메서드에서 필드에 접근할 수 없다.
-        // 정적 메서드는 객체를 생성하지 않고 사용하므로 필드에 접근할 수 없다.
+        // 정적 메서드에서는 인스턴스 필드에 접근할 수 없다.
+        // 정적 메서드는 객체를 생성하지 않고 사용하므로 인스턴스 필드에 접근할 수 없다.
         // System.out.println(num3);
     }
 
@@ -21,7 +23,7 @@ public class B_StaticMethod {
         int num1 = 20;
         int num2 = 30;
 
-        // 정적 메서드에서는 this를 사용할 수 없다.
+        // 정적 메서드에서는 this 키워드를 사용할 수 없다.
         // 따라서, B_StaticMethod.num1 형태로 접근한다.
         return num1 + num2 + B_StaticMethod.num2;
     }
