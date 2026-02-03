@@ -9,6 +9,13 @@ import java.util.StringTokenizer;
         - 변경이 적고 읽기가 많은 경우에 사용하는 것이 좋다.
 
     StringBuffer & StringBuilder 클래스
+        - 가변의 클래스이다. (문자열을 생성하면 변경할 수 있다.)
+        - 16개의 문자를 저장할 수 있는 버퍼가 미리 생성되고 문자가 저장됨에 따라 자동으로 증가한다.
+        - 내부 버퍼에 문자열을 저장해 두고 그 안에서 추가, 수정, 삭제 작업을 할 수 있도록 설계되어 있다.
+        - 문자열의 변경이 많은 경우에 사용하는 것이 좋다.
+        - StringBuffer & StringBuilder 의 차이점은 동기화에 있다.
+            - StringBuffer는 멀티 스레드 환경에서 사용을 권장한다.
+            - StringBuilder는 단일 스레드 환경에서 사용을 권장한다.
 
     StringTokenizer 클래스
         - 생성자로 전달받은 문자열을 구분자를 이용해서 분리한다.
@@ -119,7 +126,79 @@ public class A_String {
         System.out.println();
     }
 
-    // StringTokenizer 클래스
+    // StringBuffer & StringBuilder 클래스가 제공하는 메서드 사용
+    public void method02() {
+        // 1. StringBuilder 객체 생성
+        // 기본 생성자를 통해서 객체를 생성하면 16개의 문자를 저장할 수 있는 버퍼가 생성된다.
+        StringBuilder sb1 = new StringBuilder();
+        System.out.println(sb1);     // ""
+        System.out.println(sb1.length());    // 0
+        System.out.println(sb1.capacity());  // 16
+        System.out.println();
+
+        // 생성자에 정수값을 전달해 주면 해당 크기만큼의 내부 버퍼가 생성된다.
+        StringBuilder sb2 = new StringBuilder(30);
+        System.out.println(sb2.capacity()); // 30
+        System.out.println();
+
+        // 생성자에 문자열을 전달해 주면 문자열 크기에 기본 16개의 문자 크기의 버퍼가 추가되어 생성된다.
+        StringBuilder sb3 = new StringBuilder("제 이름은 ");
+        sb3.append("홍길동입니다.");
+        System.out.println(sb3);    // "제 이름은 홍길동입니다."
+        System.out.println(sb3.length());   // 13
+        System.out.println(sb3.capacity()); // 22
+        System.out.println();
+
+
+        // 2. StringBuilder 클래스에서 제공하는 메서드 사용
+        String str = "안녕하세요.";
+        StringBuilder sb4 = new StringBuilder("안녕하세요.");
+
+        System.out.println(System.identityHashCode(str));   // 793589513
+        System.out.println(System.identityHashCode(sb4));   // 1313922862
+        System.out.println();
+
+        // 2-1). append("...") 메서드는 기존 문자열 뒤에 매개값으로 전달한 문자열을 추가한다.
+        // String str은 매 번 추가로 새 객체를 생성하여 해시코드가 달라진다.
+        // 반면에, StringBuilder sb는 객체 하나를 통해 문자열이 변경되어 해시코드가 같다.
+        str += "저는 홍길동입니다.";
+        sb4.append("저는 홍길동입니다.");
+        System.out.println(str);
+        System.out.println(sb4);
+        System.out.println(System.identityHashCode(str));   // 2093176254
+        System.out.println(System.identityHashCode(sb4));   // 1313922862
+        System.out.println();
+
+        // 2-2). insert(offset, str) 메서드는 기존 문자열의 offset 위치부터 매개값으로 전달한 문자열을 추가한다.
+        sb4.insert(6, "ㅎㅎㅎㅎ");
+        System.out.println(sb4);    // "안녕하세요.ㅎㅎㅎㅎ저는 홍길동입니다."
+        System.out.println(sb4.length());   // 20
+        System.out.println(sb4.capacity()); // 22
+        System.out.println();
+
+        // 2-3). delete(start, end) 메서드는 기존 문자열의 start에서 end - 1 까지의 인덱스에 해당하는 문자열을 삭제한다.
+        sb4.delete(6,14);
+        // sb4.deleteCharAt(6);
+        System.out.println(sb4);    // "안녕하세요.길동입니다."
+        System.out.println(sb4.length());   // 12
+        System.out.println(sb4.capacity()); // 22
+        System.out.println();
+
+
+        // 3. 메서드 체이닝
+        sb4 = new StringBuilder("Java Programming");
+
+        // 메서드 수행 결과 해당 객체의 참조를 반환하기 때문에
+        // 아래와 같이 메서드를 이어서 호출할 수 있다. (메서드 체이닝)
+        sb4.append("API").delete(5,16).reverse();
+
+        System.out.println(sb4);    // "IPA avaJ"
+        System.out.println(sb4.length());   // 8
+        System.out.println(sb4.capacity()); // 32
+        System.out.println();
+    }
+
+    // StringTokenizer 클래스가 제공하는 메서드 사용
     public void method03(){
         String str = "Linux,MariaDB,Java,Spring,HTML5,CSS3,Vue.js,Docker,Kubernetes,Jenkins";
         StringTokenizer st = new StringTokenizer(str, ",");
