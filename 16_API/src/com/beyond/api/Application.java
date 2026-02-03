@@ -17,8 +17,8 @@ public class Application {
 //        new A_String().method03();
 
         // Wrapper 클래스
-        new B_Wrapper().method01();
-        
+//        new B_Wrapper().method01();
+        new B_Wrapper().method02();
         // 날짜와 시간과 관련된 클래스
     }
 }
