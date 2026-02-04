@@ -2,6 +2,8 @@ package com.beyond.list.pracice;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class A_ArrayList {
@@ -112,7 +114,109 @@ public class A_ArrayList {
         numbers.add(2);
 
         System.out.println(fruits);
+        // [banana, apple, orange, kiwi, grape]
         System.out.println(numbers);
+        // [8, 1, 7, 10, 3, 2]
+        System.out.println();
+
+        // List 오름차순 정렬
+        // 주의: List의 상위 인터페이스 Collection과 혼동할 수 있음
+        // Collections.sort(fruits) 메서드에 구현된 내용 사용한다면 다음과 같다.
+        // 물론, list.sort(null); 형태로 사용도 가능하다.
+        // ex). fruits.sort(null);
+        Collections.sort(fruits);
+        Collections.sort(numbers);
+
+        System.out.println(fruits);
+        // [apple, banana, grape, kiwi, orange]
+        System.out.println(numbers);
+        // [1, 2, 3, 7, 8, 10]
+        System.out.println();
+
+        // List 내림차순 정렬
+        // 1. reverse() 메서드
+        // 오름차순으로 정렬 후 reverse()를 사용한다.
+//        Collections.reverse(fruits);
+//        Collections.reverse(numbers);
+
+        // 2. Collections.sort(list, Collections.reverseOrder()) 메서드 사용
+        Collections.sort(fruits, Collections.reverseOrder());
+        Collections.sort(numbers, Collections.reverseOrder());
+
+        System.out.println(fruits);
+        // [orange, kiwi, grape, banana, apple]
+        System.out.println(numbers);
+        // [10, 8, 7, 3, 2, 1]
+        System.out.println();
+    }
+
+    public void method03() {
+        List<Music> musicList = new ArrayList<>();
+
+        musicList.add(new Music("404 (New Era)", "키키", 4));
+        musicList.add(new Music("그대 작은 나의 세상이 되어", "카더가든", 2));
+        musicList.add(new Music("사랑하게 될 거야", "한로로", 6));
+        musicList.add(new Music("FOCUS", "Hearts2Heart", 3));
+        musicList.add(new Music("Love Love Love", "에픽하이", 1));
+        musicList.add(new Music("Good GoodBye", "화사", 5));
+
+        for(Music music : musicList) {
+            System.out.println(music);
+//            Music{title='404 (New Era)', author='키키', ranking=4}
+//            Music{title='그대 작은 나의 세상이 되어', author='카더가든', ranking=2}
+//            Music{title='사랑하게 될 거야', author='한로로', ranking=6}
+//            Music{title='FOCUS', author='Hearts2Heart', ranking=3}
+//            Music{title='Love Love Love', author='에픽하이', ranking=1}
+//            Music{title='Good GoodBye', author='화사', ranking=5}
+        }
+        System.out.println();
+
+        // 오름차순으로 리스트 정렬(랭킹순)
+        // String or Integer 등은 이미 클래스 내 Comparable 인터페이스가 구현되어 있음
+        Collections.sort(musicList);
+
+        for(Music music : musicList) {
+            System.out.println(music);
+//            Music{title='Love Love Love', author='에픽하이', ranking=1}
+//            Music{title='그대 작은 나의 세상이 되어', author='카더가든', ranking=2}
+//            Music{title='FOCUS', author='Hearts2Heart', ranking=3}
+//            Music{title='404 (New Era)', author='키키', ranking=4}
+//            Music{title='Good GoodBye', author='화사', ranking=5}
+//            Music{title='사랑하게 될 거야', author='한로로', ranking=6}
+        }
+
+        System.out.println();
+
+        // 오름차순으로 리스트 정렬(아티스트순으로 정렬)
+        // 기존의 랭킹순 정렬은 그대로 두고 아티스트 정렬을 사용할 경우
+        Collections.sort(musicList, new ArtistAscending());
+
+        for(Music music : musicList) {
+            System.out.println(music);
+        }
+
+        System.out.println();
+
+        // 오름차순으로 리스트 정렬 (타이틀순으로 정렬)
+        // 1. 익명 구현 객체
+        // 기존에는 인터페이스를 객체로 생성할 수 없음(구현 클래스를 이용)
+        // 해당 방법은 익명 클래스를 만들어서 활용
+//        Collections.sort(musicList, new Comparator<Music>() {
+//            @Override
+//            public int compare(Music music1, Music music2) {
+//                return music1.getTitle().compareTo(music2.getTitle());
+//            }
+//        });
+
+        // 2. 람다식
+        Collections.sort(musicList, (Music music1, Music music2)
+                -> music1.getTitle().compareTo(music2.getTitle())
+        );
+
+        for(Music music : musicList) {
+            System.out.println(music);
+        }
+
         System.out.println();
     }
 }

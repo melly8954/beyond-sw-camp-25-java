@@ -9,6 +9,7 @@ public class Application {
 
         A_ArrayList a = new A_ArrayList();
 //        a.method01();
-        a.method02();
+//        a.method02();
+        a.method03();
     }
 }
