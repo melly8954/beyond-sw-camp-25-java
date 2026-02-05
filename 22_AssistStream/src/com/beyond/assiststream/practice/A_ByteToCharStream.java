@@ -1,5 +1,7 @@
 package com.beyond.assiststream.practice;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -8,15 +10,16 @@ public class A_ByteToCharStream {
     // InputStreamReader 테스트
     public void method01() {
         try {
-            InputStreamReader isr = new InputStreamReader(System.in);
-            char[] buffer = new char[20];
+            // 여러 개의 보조 스트림을 연걸해서 사용 가능하다.
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+            String line;
 
             System.out.print("문자열 입력 > ");
-            isr.read(buffer);
+            line = br.readLine();
 
-            for(char c : buffer) {
-                System.out.print(c);
-            }
+            System.out.print(line);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -25,11 +28,14 @@ public class A_ByteToCharStream {
     // OutputStreamWriter 테스트
     public void method02() {
         try {
-            OutputStreamWriter osw = new OutputStreamWriter(System.out);
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-            osw.write("안녕하세여 저는 몽룡이예요\n");
-            osw.write("만나서 반갑소. 이따 다시 봐요\n");
-            osw.flush();
+            bw.write("안녕하세여 저는 몽룡이예요");
+            bw.newLine();
+            bw.write("만나서 반갑소. 이따 다시 봐요");
+            bw.newLine();
+            bw.flush();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
