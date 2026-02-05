@@ -2,6 +2,7 @@ package com.beyond.fileio;
 
 import com.beyond.fileio.practice.A_File;
 import com.beyond.fileio.practice.B_FileByteStream;
+import com.beyond.fileio.practice.C_FileCharStream;
 
 public class Application {
     public static void main(String[] args) {
@@ -13,6 +14,10 @@ public class Application {
         B_FileByteStream b = new B_FileByteStream();
 //        b.fileSave();
 //        b.fileRead();
+
+        C_FileCharStream c = new C_FileCharStream();
+//        c.fileSave();
+        c.fileRead();
 
         System.out.println("Application 실행 종료..");
     }
