@@ -14,11 +14,16 @@ public class Application {
         LoopThread loopThread = new LoopThread();
 
         loopThread.setName("Thread_Test_01");
+        // loopThread.setPriority(1);
+        // loopThread.setPriority(Thread.MIN_PRIORITY);
         // loopThread.run();
         loopThread.start();
 
         // 2. Runnable 인터페이스를 구현하는 방법
         Thread thread = new Thread(new LoopRunnable());
+
+        // loopThread.setPriority(10);
+        // loopThread.setPriority(Thread.MAX_PRIORITY);
 
         thread.setName("Thread_Test_02");
         thread.start();
