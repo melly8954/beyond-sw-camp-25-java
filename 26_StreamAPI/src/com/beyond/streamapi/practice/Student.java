@@ -37,6 +37,10 @@ public class Student {
         return eng;
     }
 
+    public double getAvg() {
+        return (this.math + this.eng) / 2.0;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
